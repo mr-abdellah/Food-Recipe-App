@@ -1,1 +1,1 @@
-# Food-Receipe-App
+# Food Receipe Application
