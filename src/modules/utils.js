@@ -2,8 +2,12 @@
 
 import Meal from './meal.js';
 import Likes from './likes.js';
+import Comment from './comment.js';
 
 const mainDiv = document.querySelector('#food-items');
+const mealDetailsContent = document.querySelector('.meal-details-content');
+const closeBtn = document.querySelector('.close-btn');
+
 // list of meals
 const mealList = async (data) => {
   const mealCount = document.querySelector('#meal-count');
@@ -71,5 +75,65 @@ const mealList = async (data) => {
     });
   }
 };
+
+const mealModal = async (meal) => {
+  [meal] = meal;
+  mealDetailsContent.innerHTML = `
+    <h2 class = "recipe-title">${meal.strMeal}</h2>
+    <p class = "recipe-category">${meal.strCategory}</p>
+    <div class = "recipe-instruct">
+      <h3>Instructions:</h3>
+      <p>${meal.strInstructions}</p>
+    </div>
+    <div class = "recipe-meal-img">
+      <img src = "${meal.strMealThumb}" alt = "">
+    </div>
+    <h3 class="m-3 comment-count"></h3>
+    <div class="d-flex justify-content-center align-items-center">
+      <ul id="list-comment" class="list-unstyled">
+      </ul>
+    </div>
+    <h3 class="m-3">Add a comment</h3>
+    <form autocomplete="off" class="w-50 mx-auto">
+      <input type="text" class="form-control w-75 mx-auto mb-2" id="name" placeholder="Your name">
+      <textarea class="form-control w-75 mx-auto mb-2" id="comment" name="comment" placeholder="Your comment..."></textarea>
+      <button type="button" class="btn btn-secondary btn-warning commentBtn">Comment</button>
+    </form>
+  `;
+  mealDetailsContent.parentElement.classList.add('showComment');
+
+  const commentBtn = document.querySelector('.commentBtn');
+  commentBtn.addEventListener('click', () => {
+    const username = document.querySelector('#name').value;
+    const comment = document.querySelector('#comment').value;
+    const newData = {
+      item_id: meal.idMeal,
+      username,
+      comment,
+    };
+    Comment.postComment(newData);
+    document.querySelector('#name').value = '';
+    document.querySelector('#comment').value = '';
+    setTimeout(() => {
+      Comment.getComment(meal);
+    }, 1000);
+  });
+  Comment.getComment(meal);
+};
+
+const getMeal = async (e) => {
+  e.preventDefault();
+  if (e.target.classList.contains('comment-btn')) {
+    const mealItem = e.target.parentElement.parentElement.parentElement;
+    const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`;
+    const response = await fetch(url).then((response) => response.json()).then((data) => data);
+    mealModal(response.meals);
+  }
+};
+
+mainDiv.addEventListener('click', getMeal);
+closeBtn.addEventListener('click', () => {
+  mealDetailsContent.parentElement.classList.remove('showComment');
+});
 
 export default mealList;
