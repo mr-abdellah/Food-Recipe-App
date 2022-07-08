@@ -9,6 +9,8 @@
 - HTML
 - CSS & Bootstrap
 - Javascript
+- [MealDB API](https://www.themealdb.com/api.php)
+- [Involvement API](https://www.notion.so/microverse/Involvement-API-869e60b5ad104603aa6db59e08150270),
 - Gitflow
 - Linters (Lighthouse, Webhint, Stylelint, Eslint)
 - Webpack
@@ -18,6 +20,9 @@
 ## Live Demo
 
 - [App Live Demo](https://github.com/mr-abdellah/Food-Receipe-App/dist)
+
+## Project Presentation
+- [App Live Presentation](https://drive.google.com/file/d/1NzgBYlAY_0A3NmkrXPJx2qtTWX6NiBeh/view?usp=sharing )
 
 ## Getting Started
 
@@ -47,13 +52,13 @@ To get a local copy up and running follow these simple example steps.
 
 👤 **Abdullah**
 
-- GitHub: [@githubhandle](https://github.com/mirwaisfarahi)
-- Twitter: [@twitterhandle](https://twitter.com/farahi92)
+- GitHub: [@githubhandle](https://github.com/mr-abdellah)
+- Twitter: [@twitterhandle](https://twitter.com/belkaiduus)
 
 👤 **Henry**
 
-- GitHub: [@githubhandle](https://github.com/mirwaisfarahi)
-- Twitter: [@twitterhandle](https://twitter.com/farahi92)
+- GitHub: [@githubhandle](https://github.com/henrycode460)
+- Twitter: [@twitterhandle](https://twitter.com/460code)
 
 ## 🤝 Contributing
 
