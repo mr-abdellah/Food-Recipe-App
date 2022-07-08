@@ -140,54 +140,7 @@ const mealModal = async (meal) => {
   Comment.getComment(meal);
 };
 
-const mealReservationModal = async (meal) => {
-  [meal] = meal;
-  mealDetailsContent.innerHTML = `
-    <h2 class = "recipe-title">${meal.strMeal}</h2>
-    <p class = "recipe-category">${meal.strCategory}</p>
-    <div class = "recipe-instruct">
-      <h3>Instructions:</h3>
-      <p>${meal.strInstructions}</p>
-    </div>
-    <div class = "recipe-meal-img">
-      <img src = "${meal.strMealThumb}" alt = "">
-    </div>
-    <h3 class="m-3 comment-count"></h3>
-    <div class="d-flex justify-content-center align-items-center">
-      <ul id="list-comment" class="list-unstyled">
-      </ul>
-    </div>
-    <h3 class="m-3">Add Reservation</h3>
-    <form autocomplete="off" class="w-50 mx-auto">
-      <input type="text" class="form-control w-75 mx-auto mb-2" id="name" placeholder="Your name">
-      <input type="date" class="form-control w-75 mx-auto mb-2" id="startDate" placeholder="Start Date">
-      <input type="date" class="form-control w-75 mx-auto mb-2" id="endDate" placeholder="End Date">
-      <button type="button" class="btn btn-secondary btn-warning reservationBtn">Reservation</button>
-    </form>
-  `;
-  mealDetailsContent.parentElement.classList.add('showComment');
 
-  const reservationBtn = document.querySelector('.reservationBtn');
-  reservationBtn.addEventListener('click', () => {
-    const username = document.querySelector('#name').value;
-    const dateStart = document.querySelector('#startDate').value;
-    const dateEnd = document.querySelector('#endDate').value;
-    const newData = {
-      item_id: meal.idMeal,
-      username,
-      date_start: dateStart,
-      date_end: dateEnd,
-    };
-    Reservation.postReservation(newData);
-    document.querySelector('#name').value = '';
-    document.querySelector('#startDate').value = '';
-    document.querySelector('#endDate').value = '';
-    setTimeout(() => {
-      Reservation.getReservation(meal);
-    }, 1000);
-  });
-  Reservation.getReservation(meal);
-};
 
 const getMeal = async (e) => {
   e.preventDefault();
@@ -197,13 +150,9 @@ const getMeal = async (e) => {
     const response = await fetch(url).then((response) => response.json()).then((data) => data);
     mealModal(response.meals);
   }
-  if (e.target.classList.contains('reservation-btn')) {
-    const mealItem = e.target.parentElement.parentElement.parentElement;
-    const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`;
-    const response = await fetch(url).then((response) => response.json()).then((data) => data);
-    mealReservationModal(response.meals);
-  }
 };
+
+
 
 mainDiv.addEventListener('click', getMeal);
 closeBtn.addEventListener('click', () => {
