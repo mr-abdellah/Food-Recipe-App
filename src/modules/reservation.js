@@ -1,9 +1,9 @@
 class Reservation {
     static totalReservation = (reservation) => {
-      if (reservation.length) return reservation.length;
-      return 0;
-    }
-
+        if (reservation.length) return reservation.length;
+        else return 0;
+      }
+    
       static postReservation = async (data) => {
         const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/8WhiXHgGMaGrsfo6vYsR/reservations';
         const response = await fetch(url, {
@@ -15,7 +15,7 @@ class Reservation {
         });
         return response.ok;
       }
-
+    
       static getReservation = async (item) => {
         const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/8WhiXHgGMaGrsfo6vYsR/reservations?item_id=${item.idMeal}`;
         let myComment = await fetch(url).then((response) => response.json());
