@@ -1,5 +1,75 @@
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+.meal-details {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #007e33;
+  color: #fff;
+  width: 50%;
+  height: 90%;
+  overflow-y: scroll;
+  border-radius: 0.2rem;
+  text-align: center;
+  padding: 2rem 0;
+  display: none;
+}
+
+.meal-details::-webkit-scrollbar {
+  width: 10px;
+}
+
+.meal-details::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 2rem;
+}
+
+.showComment {
+  display: block;
+}
+
+.meal-details-content {
+  margin: 2rem;
+}
+
+.close-btn {
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  font-size: 1.8rem;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.meal-img {
+  height: 250px;
+  overflow: hidden;
+}
+
+.meal-img img {
+  width: 100%;
+}
+
+.recipe-meal-img img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+.like-btn {
+  cursor: pointer;
 }
