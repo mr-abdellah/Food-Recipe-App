@@ -96,6 +96,41 @@ _defineProperty(Likes, "totalLikes", /*#__PURE__*/_asyncToGenerator( /*#__PURE__
   }, _callee);
 })));
 
+_defineProperty(Likes, "likeGenerator", /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(mealId) {
+    var response;
+    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/8WhiXHgGMaGrsfo6vYsR/likes', {
+              method: 'POST',
+              body: JSON.stringify({
+                item_id: mealId
+              }),
+              headers: {
+                'Content-type': 'application/json; charset=UTF-8'
+              }
+            });
+
+          case 2:
+            response = _context2.sent;
+            return _context2.abrupt("return", response.text());
+
+          case 4:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+
+  return function (_x) {
+    return _ref2.apply(this, arguments);
+  };
+}());
+
 _defineProperty(Likes, "likesCount", function (target, likesArray, numOfLikes) {
   likesArray.forEach(function (obj) {
     if (obj.item_id === target.id) {
