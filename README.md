@@ -19,7 +19,7 @@
 
 ## Live Demo
 
-- [App Live Demo](https://github.com/mr-abdellah/Food-Receipe-App/dist)
+- [App Live Demo]((https://mr-abdellah.github.io/Food-Receipe-App/))
 
 ## Project Presentation
 - [App Live Presentation](https://drive.google.com/file/d/1NzgBYlAY_0A3NmkrXPJx2qtTWX6NiBeh/view?usp=sharing )
