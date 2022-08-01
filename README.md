@@ -2,7 +2,7 @@
 
 # Food Receipe Application Project
 
-> This is a HTML/CSS, Javscript and API based web application for food receipe.
+> This is an HTML/CSS, Javscript and API based web application for food receipe.
 
 ## Built With
 
